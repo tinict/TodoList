@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --Background-color-main: #6495ED;
+}
+
+body {
+    background-color: var(--Background-color-main);
+}
+
+.main {
+    width: 100%;
+    padding: 0 32px;
+}
+
+.header-todolist {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    display: flex;
+    color: #ffffff;
+    justify-content: space-between;
+    background-color: var(--Background-color-main);
+    padding: 0 16px;
+}
+
+.header-todolist .left-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.header-todolist .right-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-todolist .title-header {
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-header .fa-house {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.right-header .fa-bars {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+/* footer to do list */
+
+.footer-todolist {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: var(--Background-color-main);
+    padding: 0 32px;
+}
+
+.footer-todolist .addTasks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    height: 40px;
+    background-color: #00FFFF;
+    font-size: 18px;
+}
+
+.footer-todolist .addTask {
+    border: none;
+    background: #00FFFF;
+    offset: 0;
+    outline: none;
+    font-size: 16px;
+    margin-left: 16px;
+}
+
+/* contents */
+
+.contents:before {
+    display: block;
+    width: 100%;
+    height: 56px;
+    content: "";
+}
+
+.contents .item-list {
+    display: flex;
+    background-color: #ffffff;
+    height: 36px;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 5px;
+}
+
+.contents .item-list .item-left {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contents .item-list .item-right {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contents .item-list .item-right .fa-star {
+    color: #DCDCDC;
+}
+
+.contents .item-list .work-item {
+    margin-left: 16px;
+    font-size: 16px
+}
+
+.contents .item-list .radio-item {
+    height: 18px;
+    width: 18px;
+}
