@@ -14,7 +14,7 @@ body {
 
 .main {
     width: 100%;
-    padding: 0 32px;
+    padding: 0 16px;
 }
 
 .header-todolist {
@@ -75,7 +75,7 @@ body {
     right: 0;
     height: 80px;
     background-color: var(--Background-color-main);
-    padding: 0 32px;
+    padding: 0 16px;
 }
 
 .footer-todolist .addTasks {
@@ -91,7 +91,6 @@ body {
 .footer-todolist .addTask {
     border: none;
     background: #00FFFF;
-    offset: 0;
     outline: none;
     font-size: 16px;
     margin-left: 16px;
