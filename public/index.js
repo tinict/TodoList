@@ -4,6 +4,8 @@ const ElementAddWork = document.querySelector('.btn-addTask');
 const ElementList = document.querySelector('.list');
 
 var Tasks = [];
+Tasks = JSON.parse(window.localStorage.Tasks);
+console.log(Tasks);
 
 const RenderTasks = () => {
     const htmlTasks = Tasks.map((task) => {
@@ -26,7 +28,9 @@ const RemoveTask = (str) => {
     console.log('Delete Successful');
     Tasks = Tasks.filter((Task) => {
         return Task !== str;
-    })
+    });
+    window.localStorage.removeItem('Tasks')
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
     RenderTasks();
     const ElementCheckTasks = document.querySelectorAll('.radio-item');
     const ElementWorkItem = document.querySelectorAll('.work-item');
@@ -44,7 +48,13 @@ ElementAddWork.onclick = () => {
     Tasks.push(ElementIpWork.value);
     RenderTasks();
     RemoveTask();
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 };
+
+window.onload = () => {
+    RenderTasks();
+    RemoveTask();
+}
 
 
 
