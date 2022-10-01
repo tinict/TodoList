@@ -4,8 +4,16 @@ const ElementAddWork = document.querySelector('.btn-addTask');
 const ElementList = document.querySelector('.list');
 
 var Tasks = [];
-// (1) 
-Tasks = JSON.parse(window.localStorage.getItem('Tasks'));
+if (Tasks != null) {
+    
+    window.onload = () => {
+        RenderTasks();
+        RemoveTask();
+    }
+}
+else
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
+    
 console.log(Tasks);
 
 const RenderTasks = () => {
@@ -57,14 +65,6 @@ ElementAddWork.onclick = () => {
     // window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 };
 
-if (Tasks != null) {
-    window.onload = () => {
-        RenderTasks();
-        RemoveTask();
-    }
-}
-else
-    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 
 
 
