@@ -4,7 +4,8 @@ const ElementAddWork = document.querySelector('.btn-addTask');
 const ElementList = document.querySelector('.list');
 
 var Tasks = [];
-Tasks = JSON.parse(window.localStorage.Tasks);
+// (1) 
+Tasks = JSON.parse(window.localStorage.getItem('Tasks'));
 console.log(Tasks);
 
 const RenderTasks = () => {
@@ -29,9 +30,11 @@ const RemoveTask = (str) => {
     Tasks = Tasks.filter((Task) => {
         return Task !== str;
     });
-    window.localStorage.removeItem('Tasks')
-    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
+    console.log(Tasks);
     RenderTasks();
+    // window.localStorage.removeItem('Tasks')
+    // window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
+    // RenderTasks();
     const ElementCheckTasks = document.querySelectorAll('.radio-item');
     const ElementWorkItem = document.querySelectorAll('.work-item');
     console.log(ElementCheckTasks);
@@ -42,19 +45,27 @@ const RemoveTask = (str) => {
             RemoveTask(ElementWorkItem[i].textContent);
         });
     };
+    // Tasks = Tasks.filter((Task) => {
+    //     return Task !== str;
+    // });
+    // console.log(Tasks);
+    // RenderTasks();
 }
 
 ElementAddWork.onclick = () => {
     Tasks.push(ElementIpWork.value);
+    console.log(Tasks);
     RenderTasks();
     RemoveTask();
-    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
+    // window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 };
 
-window.onload = () => {
-    RenderTasks();
-    RemoveTask();
-}
+// if (Tasks != null) {
+//     window.onload = () => {
+//         RenderTasks();
+//         RemoveTask();
+//     }
+// }
 
 
 
