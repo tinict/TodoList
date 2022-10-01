@@ -27,14 +27,15 @@ const RenderTasks = () => {
 
 const RemoveTask = (str) => {
     console.log('Delete Successful');
+    // (3)
+    window.localStorage.removeItem('Tasks');
     Tasks = Tasks.filter((Task) => {
         return Task !== str;
     });
     console.log(Tasks);
     RenderTasks();
-    // window.localStorage.removeItem('Tasks')
-    // window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
-    // RenderTasks();
+    // (4)
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
     const ElementCheckTasks = document.querySelectorAll('.radio-item');
     const ElementWorkItem = document.querySelectorAll('.work-item');
     console.log(ElementCheckTasks);
@@ -45,11 +46,6 @@ const RemoveTask = (str) => {
             RemoveTask(ElementWorkItem[i].textContent);
         });
     };
-    // Tasks = Tasks.filter((Task) => {
-    //     return Task !== str;
-    // });
-    // console.log(Tasks);
-    // RenderTasks();
 }
 
 ElementAddWork.onclick = () => {
@@ -57,15 +53,18 @@ ElementAddWork.onclick = () => {
     console.log(Tasks);
     RenderTasks();
     RemoveTask();
+    // (2) Error
     // window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 };
 
-// if (Tasks != null) {
-//     window.onload = () => {
-//         RenderTasks();
-//         RemoveTask();
-//     }
-// }
+if (Tasks != null) {
+    window.onload = () => {
+        RenderTasks();
+        RemoveTask();
+    }
+}
+else
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks));
 
 
 
