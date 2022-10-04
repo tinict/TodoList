@@ -65,6 +65,13 @@ body {
     margin: 8px;
 }
 
+.container:after {
+    content: "";
+    display: block;
+    height: 80px;
+    width: 100%;
+}
+
 /* footer to do list */
 
 .footer-todolist {
@@ -139,4 +146,28 @@ body {
 .contents .item-list .radio-item {
     height: 18px;
     width: 18px;
+}
+
+/* button completed */
+
+.complete-task .btn-complete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #00FFFF;
+    border: 0;
+    padding: 5px 6px;
+    border-radius: 5px;
+}
+
+.complete-task .btn-complete .btn-right {
+    margin-left: 8px;
+}
+
+.complete-task .hint-btn {
+    display: none;
+}
+
+.complete-item {
+    text-decoration: line-through #2F4F4F;
 }
